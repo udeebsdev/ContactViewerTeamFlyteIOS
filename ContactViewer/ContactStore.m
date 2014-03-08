@@ -28,7 +28,7 @@
 
 -(id)initWithDummies{
     self = [super init];
-    _contacts =@[
+    _contacts = @[
                  [[Contact alloc] initWithName:@"Prabina Shrestha" andTitle:@"Student"],
                  
                  [[Contact alloc] initWithName:@"Udeeb Shankhadev" andTitle:@"Student"],

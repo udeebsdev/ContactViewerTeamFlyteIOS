@@ -78,6 +78,8 @@
 
     Contact *object = [_contactStore getContactAtIndex:indexPath.row];
     cell.textLabel.text = object.name;
+    cell.detailTextLabel.text = object.title;
+    
     return cell;
 }
 

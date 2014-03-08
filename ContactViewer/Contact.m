@@ -16,7 +16,7 @@
     self = [super init];
     
     self.name = newName;
-    self.twitter = newTitle;
+    self.title = newTitle;
     return self;
 }
 

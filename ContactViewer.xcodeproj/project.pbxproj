@@ -25,6 +25,8 @@
 		F4A47A3418CB7F9E007926D8 /* ContactViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A47A3318CB7F9E007926D8 /* ContactViewerTests.m */; };
 		F4A47A3F18CB85EB007926D8 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A47A3E18CB85EB007926D8 /* Contact.m */; };
 		F4A47A4218CB876E007926D8 /* ContactStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A47A4118CB876E007926D8 /* ContactStore.m */; };
+		F4A47A4518CB968C007926D8 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A47A4418CB968C007926D8 /* EditViewController.m */; };
+		F4A47A4718CB9909007926D8 /* facebook-avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A47A4618CB9909007926D8 /* facebook-avatar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,9 @@
 		F4A47A3E18CB85EB007926D8 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		F4A47A4018CB876E007926D8 /* ContactStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactStore.h; sourceTree = "<group>"; };
 		F4A47A4118CB876E007926D8 /* ContactStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactStore.m; sourceTree = "<group>"; };
+		F4A47A4318CB968C007926D8 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		F4A47A4418CB968C007926D8 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		F4A47A4618CB9909007926D8 /* facebook-avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook-avatar.png"; path = "../../Downloads/facebook-avatar.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +128,7 @@
 		F4A47A0818CB7F9E007926D8 /* ContactViewer */ = {
 			isa = PBXGroup;
 			children = (
+				F4A47A4818CB991E007926D8 /* Graphics */,
 				F4A47A1118CB7F9E007926D8 /* AppDelegate.h */,
 				F4A47A1218CB7F9E007926D8 /* AppDelegate.m */,
 				F4A47A1418CB7F9E007926D8 /* Main_iPhone.storyboard */,
@@ -137,6 +143,8 @@
 				F4A47A3E18CB85EB007926D8 /* Contact.m */,
 				F4A47A4018CB876E007926D8 /* ContactStore.h */,
 				F4A47A4118CB876E007926D8 /* ContactStore.m */,
+				F4A47A4318CB968C007926D8 /* EditViewController.h */,
+				F4A47A4418CB968C007926D8 /* EditViewController.m */,
 			);
 			path = ContactViewer;
 			sourceTree = "<group>";
@@ -168,6 +176,14 @@
 				F4A47A3018CB7F9E007926D8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F4A47A4818CB991E007926D8 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				F4A47A4618CB9909007926D8 /* facebook-avatar.png */,
+			);
+			name = Graphics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +266,7 @@
 				F4A47A2118CB7F9E007926D8 /* Images.xcassets in Resources */,
 				F4A47A1618CB7F9E007926D8 /* Main_iPhone.storyboard in Resources */,
 				F4A47A0D18CB7F9E007926D8 /* InfoPlist.strings in Resources */,
+				F4A47A4718CB9909007926D8 /* facebook-avatar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +288,7 @@
 				F4A47A1318CB7F9E007926D8 /* AppDelegate.m in Sources */,
 				F4A47A1C18CB7F9E007926D8 /* MasterViewController.m in Sources */,
 				F4A47A4218CB876E007926D8 /* ContactStore.m in Sources */,
+				F4A47A4518CB968C007926D8 /* EditViewController.m in Sources */,
 				F4A47A3F18CB85EB007926D8 /* Contact.m in Sources */,
 				F4A47A0F18CB7F9E007926D8 /* main.m in Sources */,
 				F4A47A1F18CB7F9E007926D8 /* DetailViewController.m in Sources */,
