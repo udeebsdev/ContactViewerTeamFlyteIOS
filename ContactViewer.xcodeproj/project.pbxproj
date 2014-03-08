@@ -23,6 +23,8 @@
 		F4A47A2A18CB7F9E007926D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A47A0618CB7F9E007926D8 /* UIKit.framework */; };
 		F4A47A3218CB7F9E007926D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4A47A3018CB7F9E007926D8 /* InfoPlist.strings */; };
 		F4A47A3418CB7F9E007926D8 /* ContactViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A47A3318CB7F9E007926D8 /* ContactViewerTests.m */; };
+		F4A47A3F18CB85EB007926D8 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A47A3E18CB85EB007926D8 /* Contact.m */; };
+		F4A47A4218CB876E007926D8 /* ContactStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A47A4118CB876E007926D8 /* ContactStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,10 @@
 		F4A47A2F18CB7F9E007926D8 /* ContactViewerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ContactViewerTests-Info.plist"; sourceTree = "<group>"; };
 		F4A47A3118CB7F9E007926D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F4A47A3318CB7F9E007926D8 /* ContactViewerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactViewerTests.m; sourceTree = "<group>"; };
+		F4A47A3D18CB85EB007926D8 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		F4A47A3E18CB85EB007926D8 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		F4A47A4018CB876E007926D8 /* ContactStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactStore.h; sourceTree = "<group>"; };
+		F4A47A4118CB876E007926D8 /* ContactStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,10 @@
 				F4A47A1E18CB7F9E007926D8 /* DetailViewController.m */,
 				F4A47A2018CB7F9E007926D8 /* Images.xcassets */,
 				F4A47A0918CB7F9E007926D8 /* Supporting Files */,
+				F4A47A3D18CB85EB007926D8 /* Contact.h */,
+				F4A47A3E18CB85EB007926D8 /* Contact.m */,
+				F4A47A4018CB876E007926D8 /* ContactStore.h */,
+				F4A47A4118CB876E007926D8 /* ContactStore.m */,
 			);
 			path = ContactViewer;
 			sourceTree = "<group>";
@@ -260,6 +270,8 @@
 			files = (
 				F4A47A1318CB7F9E007926D8 /* AppDelegate.m in Sources */,
 				F4A47A1C18CB7F9E007926D8 /* MasterViewController.m in Sources */,
+				F4A47A4218CB876E007926D8 /* ContactStore.m in Sources */,
+				F4A47A3F18CB85EB007926D8 /* Contact.m in Sources */,
 				F4A47A0F18CB7F9E007926D8 /* main.m in Sources */,
 				F4A47A1F18CB7F9E007926D8 /* DetailViewController.m in Sources */,
 			);
