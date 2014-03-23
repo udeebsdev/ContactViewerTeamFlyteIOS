@@ -10,11 +10,11 @@
 
 @implementation Contact
 
-@synthesize name, title, phone, email, address, alias, socialNetworkHandle;
+@synthesize _id, name, title, phone, email, address, alias, socialNetworkHandle;
 
 -(id) initWithName:(NSString*)newName andTitle:(NSString*)newTitle{
     self = [super init];
-    
+    self._id = [[NSUUID UUID] UUIDString];
     self.name = newName;
     self.title = newTitle;
 

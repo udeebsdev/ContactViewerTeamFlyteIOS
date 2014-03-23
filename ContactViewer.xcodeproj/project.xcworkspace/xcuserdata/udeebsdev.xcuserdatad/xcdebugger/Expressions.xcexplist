@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[MasterViewController tableView:numberOfRowsInSection:]:MasterViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_contactStore.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ContactStore initWithDummies]:ContactStore.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[EditViewController actionSave:]:EditViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[MasterViewController tableView:cellForRowAtIndexPath:]:MasterViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "object.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

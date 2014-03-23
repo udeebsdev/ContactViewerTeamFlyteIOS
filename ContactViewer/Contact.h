@@ -10,6 +10,7 @@
 
 @interface Contact : NSObject
 
+@property NSString* _id;
 @property NSString* name;
 @property NSString* title;
 @property NSString* phone;
