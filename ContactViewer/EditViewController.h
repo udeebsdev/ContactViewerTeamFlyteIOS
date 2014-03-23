@@ -8,6 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Contact.h"
+
 @interface EditViewController : UIViewController
+
+@property (strong, nonatomic) Contact* detailItem;
+
+@property (weak, nonatomic) IBOutlet UITextField *textName;
+
+@property (weak, nonatomic) IBOutlet UITextField *textAlias;
+
+@property (weak, nonatomic) IBOutlet UITextField *textTitle;
+
+@property (weak, nonatomic) IBOutlet UITextField *textPhone;
+
+@property (weak, nonatomic) IBOutlet UITextField *textAddress;
+
+@property (weak, nonatomic) IBOutlet UITextField *textEmail;
+
+@property (weak, nonatomic) IBOutlet UITextField *textHandle;
 
 @end
