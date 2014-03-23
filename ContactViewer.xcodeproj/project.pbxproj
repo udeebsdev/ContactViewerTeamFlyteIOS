@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4604DF118DF3F280061051E /* facebook-avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = F4604DF018DF3F280061051E /* facebook-avatar.png */; };
 		F4A47A0318CB7F9E007926D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A47A0218CB7F9E007926D8 /* Foundation.framework */; };
 		F4A47A0518CB7F9E007926D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A47A0418CB7F9E007926D8 /* CoreGraphics.framework */; };
 		F4A47A0718CB7F9E007926D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A47A0618CB7F9E007926D8 /* UIKit.framework */; };
@@ -26,7 +27,6 @@
 		F4A47A3F18CB85EB007926D8 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A47A3E18CB85EB007926D8 /* Contact.m */; };
 		F4A47A4218CB876E007926D8 /* ContactStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A47A4118CB876E007926D8 /* ContactStore.m */; };
 		F4A47A4518CB968C007926D8 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A47A4418CB968C007926D8 /* EditViewController.m */; };
-		F4A47A4718CB9909007926D8 /* facebook-avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A47A4618CB9909007926D8 /* facebook-avatar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F4604DF018DF3F280061051E /* facebook-avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-avatar.png"; sourceTree = SOURCE_ROOT; };
 		F4A479FF18CB7F9E007926D8 /* ContactViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A47A0218CB7F9E007926D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F4A47A0418CB7F9E007926D8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -68,7 +69,6 @@
 		F4A47A4118CB876E007926D8 /* ContactStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactStore.m; sourceTree = "<group>"; };
 		F4A47A4318CB968C007926D8 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		F4A47A4418CB968C007926D8 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
-		F4A47A4618CB9909007926D8 /* facebook-avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook-avatar.png"; path = "../../Downloads/facebook-avatar.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +181,7 @@
 		F4A47A4818CB991E007926D8 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				F4A47A4618CB9909007926D8 /* facebook-avatar.png */,
+				F4604DF018DF3F280061051E /* facebook-avatar.png */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -264,9 +264,9 @@
 			files = (
 				F4A47A1918CB7F9E007926D8 /* Main_iPad.storyboard in Resources */,
 				F4A47A2118CB7F9E007926D8 /* Images.xcassets in Resources */,
+				F4604DF118DF3F280061051E /* facebook-avatar.png in Resources */,
 				F4A47A1618CB7F9E007926D8 /* Main_iPhone.storyboard in Resources */,
 				F4A47A0D18CB7F9E007926D8 /* InfoPlist.strings in Resources */,
-				F4A47A4718CB9909007926D8 /* facebook-avatar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +510,7 @@
 				F4A47A3918CB7F9E007926D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F4A47A3A18CB7F9E007926D8 /* Build configuration list for PBXNativeTarget "ContactViewerTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +519,7 @@
 				F4A47A3C18CB7F9E007926D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
