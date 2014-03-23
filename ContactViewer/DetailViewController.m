@@ -7,8 +7,12 @@
 //
 
 #import "DetailViewController.h"
+#import "ContactStore.h"
 
-@interface DetailViewController ()
+@interface DetailViewController (){
+    
+    ContactStore* _contactStore;
+}
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
 @end
@@ -49,8 +53,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _contactStore = [[ContactStore alloc] initWithDummies];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.detailItem = [_contactStore findContactById:self.detailItem._id];
+    [self configureView];
+    
 }
 
 - (void)didReceiveMemoryWarning

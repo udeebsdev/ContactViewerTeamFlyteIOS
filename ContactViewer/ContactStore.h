@@ -17,4 +17,6 @@
 -(id)addContact:(Contact*) newContact;
 -(id)deleteContact:(Contact*)contactToRemove;
 -(id)updateContact:(Contact*)contactToUpdate;
+-(void)reLoadContacts;
+-(Contact*) findContactById:(NSString*)contactID;
 @end

@@ -74,8 +74,6 @@
 
 
 - (IBAction) actionSave:(id)sender {
-    
-    //TODO: persist changes
     self.detailItem.name = self.textName.text;
     self.detailItem.alias = self.textAlias.text;
     self.detailItem.title = self.textTitle.text;

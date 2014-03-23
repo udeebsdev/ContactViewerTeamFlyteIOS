@@ -34,6 +34,16 @@
     return self;
 }
 
+-(void)reLoadContacts{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    // Read from the NSUserDefaults
+    NSArray* rawContacts  = [[NSArray alloc] initWithArray:[prefs arrayForKey:@"flyteContacts"]];
+    NSMutableArray *mutableContactsForReading  = [self deSerializeContacts:rawContacts];
+    
+    _contacts = [NSArray arrayWithArray:mutableContactsForReading];
+}
+
 -(id)updateContact:(Contact*)contactToUpdate{
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
@@ -106,6 +116,22 @@
         [prefs setObject:mutableContacts forKey:@"flyteContacts"];
     }
     return self;
+}
+
+-(Contact*) findContactById:(NSString*)contactID{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    // Read from the NSUserDefaults
+    NSArray* rawContacts  = [[NSArray alloc] initWithArray:[prefs arrayForKey:@"flyteContacts"]];
+    NSMutableArray *mutableContactsForReading  = [self deSerializeContacts:rawContacts];
+    
+    for(Contact* tempContact in mutableContactsForReading)
+    {
+        if(tempContact._id == contactID){
+            return tempContact;
+        }
+    }
+    return nil;
 }
 
 -(Contact*)deSerializeIndividualContacts:(NSDictionary*)dictContact{
