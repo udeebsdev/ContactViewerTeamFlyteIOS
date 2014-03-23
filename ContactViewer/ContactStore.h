@@ -14,5 +14,7 @@
 -(int) count;
 -(Contact*) getContactAtIndex : (int) index;
 -(id)initWithDummies;
-
+-(id)addContact:(Contact*) newContact;
+-(id)deleteContact:(Contact*)contactToRemove;
+-(id)updateContact:(Contact*)contactToUpdate;
 @end

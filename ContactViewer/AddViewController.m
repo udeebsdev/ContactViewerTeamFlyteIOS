@@ -8,7 +8,12 @@
 
 #import "AddViewController.h"
 
-@interface AddViewController ()
+#import "ContactStore.h"
+
+@interface AddViewController (){
+    ContactStore* _contactStore;
+}
+
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @end
 
@@ -26,6 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _contactStore = [[ContactStore alloc] initWithDummies];
     
     if (self.masterPopoverController != nil) {
         [self.masterPopoverController dismissPopoverAnimated:YES];
@@ -49,6 +56,8 @@
    newContact.email = self.textEmail.text;
    newContact.address = self.textAddress.text;
    newContact.socialNetworkHandle = self.textHandle.text;
+    
+    [_contactStore addContact:newContact];
     
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
