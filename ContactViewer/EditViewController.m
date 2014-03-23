@@ -27,7 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    [self configureView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,11 +52,11 @@
 }
 - (void)configureView
 {
-    // Update the user interface for the detail item.
+    // Update the user interface for the edit item.
     
     if (self.detailItem) {
-        _textName.text = self.detailItem.name;
-        _textAlias.text = self.detailItem.alias;
+        self.textName.text = self.detailItem.name;
+        self.textAlias.text = self.detailItem.alias;
         self.textTitle.text = self.detailItem.title;
         self.textPhone.text = self.detailItem.phone;
         self.textEmail.text = self.detailItem.email;

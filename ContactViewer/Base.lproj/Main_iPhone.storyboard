@@ -226,7 +226,7 @@
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hSc-zm-8uE">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hSc-zm-8uE">
                                 <rect key="frame" x="140" y="96" width="160" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -302,8 +302,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Edit" id="x08-nJ-Een"/>
                     <connections>
+                        <outlet property="textAddress" destination="gxW-DT-voV" id="lSu-5J-8Y1"/>
                         <outlet property="textAlias" destination="pQh-tb-80k" id="QLf-qW-TbP"/>
+                        <outlet property="textEmail" destination="jsv-q4-hg5" id="F1J-IL-ovG"/>
+                        <outlet property="textHandle" destination="xJ1-5f-Hsh" id="xRV-i2-jUo"/>
                         <outlet property="textName" destination="hSc-zm-8uE" id="2r9-Yh-yB6"/>
+                        <outlet property="textPhone" destination="G41-h0-MP5" id="lGC-sO-VUl"/>
+                        <outlet property="textTitle" destination="iNp-e7-Opq" id="8d6-Tf-tdd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RB9-bB-3a7" userLabel="First Responder" sceneMemberID="firstResponder"/>
