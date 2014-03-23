@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F4604DF118DF3F280061051E /* facebook-avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = F4604DF018DF3F280061051E /* facebook-avatar.png */; };
+		F4604DF518DF7B760061051E /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4604DF418DF7B760061051E /* AddViewController.m */; };
 		F4A47A0318CB7F9E007926D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A47A0218CB7F9E007926D8 /* Foundation.framework */; };
 		F4A47A0518CB7F9E007926D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A47A0418CB7F9E007926D8 /* CoreGraphics.framework */; };
 		F4A47A0718CB7F9E007926D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A47A0618CB7F9E007926D8 /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		F4604DF018DF3F280061051E /* facebook-avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-avatar.png"; sourceTree = SOURCE_ROOT; };
+		F4604DF318DF7B540061051E /* AddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		F4604DF418DF7B760061051E /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 		F4A479FF18CB7F9E007926D8 /* ContactViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A47A0218CB7F9E007926D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F4A47A0418CB7F9E007926D8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -145,6 +148,8 @@
 				F4A47A4118CB876E007926D8 /* ContactStore.m */,
 				F4A47A4318CB968C007926D8 /* EditViewController.h */,
 				F4A47A4418CB968C007926D8 /* EditViewController.m */,
+				F4604DF318DF7B540061051E /* AddViewController.h */,
+				F4604DF418DF7B760061051E /* AddViewController.m */,
 			);
 			path = ContactViewer;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 				F4A47A4518CB968C007926D8 /* EditViewController.m in Sources */,
 				F4A47A3F18CB85EB007926D8 /* Contact.m in Sources */,
 				F4A47A0F18CB7F9E007926D8 /* main.m in Sources */,
+				F4604DF518DF7B760061051E /* AddViewController.m in Sources */,
 				F4A47A1F18CB7F9E007926D8 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

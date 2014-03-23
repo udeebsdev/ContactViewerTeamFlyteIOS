@@ -65,4 +65,25 @@
     }
 }
 
+
+- (IBAction) actionSave:(id)sender {
+    
+    //TODO: persist changes
+    self.detailItem.name = self.textName.text;
+    self.detailItem.alias = self.textAlias.text;
+    self.detailItem.title = self.textTitle.text;
+    self.detailItem.phone = self.textPhone.text;
+    self.detailItem.email = self.textEmail.text;
+    self.detailItem.address = self.textAddress.text;
+    self.detailItem.socialNetworkHandle = self.textHandle.text;
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction) actionDelete:(id)sender {
+    
+    //TODO: persist changes
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 @end
