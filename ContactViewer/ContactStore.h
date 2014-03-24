@@ -11,12 +11,11 @@
 
 @interface ContactStore : NSObject
 
--(int) count;
--(Contact*) getContactAtIndex : (int) index;
--(id)initWithDummies;
--(id)addContact:(Contact*) newContact;
--(id)deleteContact:(Contact*)contactToRemove;
--(id)updateContact:(Contact*)contactToUpdate;
--(void)reLoadContacts;
--(Contact*) findContactById:(NSString*)contactID;
++(int) count;
++(Contact*) getContactAtIndex : (int) index;
++(id)init;
++(id)addContact:(Contact*) newContact;
++(id)deleteContact:(Contact*)contactToRemove;
++(id)updateContact:(Contact*)contactToUpdate;
++(Contact*) findContactById:(NSString*)contactID;
 @end

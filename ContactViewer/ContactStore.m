@@ -9,42 +9,31 @@
 #import "ContactStore.h"
 #import "Contact.h"
 
-@interface ContactStore (){
-    NSArray* _contacts;
-}
+@interface ContactStore ()
 @end
 
 
 @implementation ContactStore
 
--(int) count{
-    return _contacts.count;
-}
-
--(Contact*) getContactAtIndex : (int) index{
-    //compiler does the auto casting for us
-    return [_contacts objectAtIndex: index];
-}
-
--(id)init{
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    
-    _contacts = [prefs arrayForKey:@"flyteContacts"];
-    
-    return self;
-}
-
--(void)reLoadContacts{
++(int) count{
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
     // Read from the NSUserDefaults
     NSArray* rawContacts  = [[NSArray alloc] initWithArray:[prefs arrayForKey:@"flyteContacts"]];
     NSMutableArray *mutableContactsForReading  = [self deSerializeContacts:rawContacts];
-    
-    _contacts = [NSArray arrayWithArray:mutableContactsForReading];
+    return mutableContactsForReading.count;
 }
 
--(id)updateContact:(Contact*)contactToUpdate{
++(Contact*) getContactAtIndex : (int) index{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    // Read from the NSUserDefaults
+    NSArray* rawContacts  = [[NSArray alloc] initWithArray:[prefs arrayForKey:@"flyteContacts"]];
+    NSMutableArray *mutableContactsForReading  = [self deSerializeContacts:rawContacts];
+    return [mutableContactsForReading objectAtIndex: index];
+}
+
++(id)updateContact:(Contact*)contactToUpdate{
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
     // Read from the NSUserDefaults
@@ -62,8 +51,6 @@
             tempContact.socialNetworkHandle = contactToUpdate.socialNetworkHandle;
             tempContact.alias = contactToUpdate.alias;
             
-            _contacts = [NSArray arrayWithArray:mutableContactsForReading];
-            
             NSMutableArray *mutableContacts = [self serializeContacts:mutableContactsForReading];
             [prefs setObject:mutableContacts forKey:@"flyteContacts"];
 
@@ -75,7 +62,7 @@
     return self;
 }
 
--(id)addContact:(Contact*)newContact{
++(id)addContact:(Contact*)newContact{
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
    
     // Read from the NSUserDefaults
@@ -83,15 +70,13 @@
     NSMutableArray *mutableContactsForReading  = [self deSerializeContacts:rawContacts];
     [mutableContactsForReading addObject:newContact];
     
-    _contacts = [NSArray arrayWithArray:mutableContactsForReading];
-    
     NSMutableArray *mutableContacts = [self serializeContacts:mutableContactsForReading];
     [prefs setObject:mutableContacts forKey:@"flyteContacts"];
     
     return self;
 }
 
--(id)deleteContact:(Contact*)contactToRemove{
++(id)deleteContact:(Contact*)contactToRemove{
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
     // Read from the NSUserDefaults
@@ -110,15 +95,13 @@
     if(contactToRemoveIndex >= 0){
         [mutableContactsForReading removeObjectAtIndex:contactToRemoveIndex];
     
-        _contacts = [NSArray arrayWithArray:mutableContactsForReading];
-    
         NSMutableArray *mutableContacts = [self serializeContacts:mutableContactsForReading];
         [prefs setObject:mutableContacts forKey:@"flyteContacts"];
     }
     return self;
 }
 
--(Contact*) findContactById:(NSString*)contactID{
++(Contact*) findContactById:(NSString*)contactID{
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
     // Read from the NSUserDefaults
@@ -134,7 +117,7 @@
     return nil;
 }
 
--(Contact*)deSerializeIndividualContacts:(NSDictionary*)dictContact{
++(Contact*)deSerializeIndividualContacts:(NSDictionary*)dictContact{
    
         Contact *contact1 = [[Contact alloc] initWithName:[dictContact objectForKey:@"Name"] andTitle:[dictContact objectForKey:@"Title"]];
         contact1._id =[dictContact objectForKey:@"ID"];
@@ -147,7 +130,7 @@
 }
 
 
--(NSMutableArray*)deSerializeContacts:(NSArray*)rawContacts{
++(NSMutableArray*)deSerializeContacts:(NSArray*)rawContacts{
     NSMutableArray *mutableContactsForReading = [[NSMutableArray alloc] init];
     
     for(NSDictionary* dictContact in rawContacts) {
@@ -157,9 +140,7 @@
     return mutableContactsForReading;
 }
 
--(id)initWithDummies{
-    self = [super init];
-    
++(id)init{
      NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
     // Read from the NSUserDefaults
@@ -168,18 +149,13 @@
     // If there is not contact then create new
     if(rawContacts == nil || rawContacts.count ==0){
         [self createDummyContacts];
-        rawContacts  = [[NSArray alloc] initWithArray:[prefs arrayForKey:@"flyteContacts"]];
     }
-   
-    NSMutableArray *mutableContactsForReading  = [self deSerializeContacts:rawContacts];
-    
-    _contacts = [NSArray arrayWithArray:mutableContactsForReading];
 
     return self;
 }
 
 
--(NSMutableDictionary*) serializeIndividualContact:(Contact*) contactItem{
++(NSMutableDictionary*) serializeIndividualContact:(Contact*) contactItem{
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [dict setValue:contactItem._id forKey:@"ID"];
     [dict setValue:contactItem.name forKey:@"Name"];
@@ -194,7 +170,7 @@
     
 }
 
--(NSMutableArray*) serializeContacts:(NSArray*) contactsToSerialize{
++(NSMutableArray*) serializeContacts:(NSArray*) contactsToSerialize{
     NSMutableArray *mutableContacts = [[NSMutableArray alloc] init];
     
     for(Contact* contactItem in contactsToSerialize) {
@@ -207,7 +183,7 @@
 }
 
 
--(id) createDummyContacts{
++(id) createDummyContacts{
     // Create some sample contacts
     Contact *contact1 = [[Contact alloc] initWithName:@"Gregory Jensen" andTitle:@"Best Buy"];
     contact1.alias=@"Greg";

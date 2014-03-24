@@ -12,10 +12,7 @@
 
 #import "ContactStore.h"
 
-@interface MasterViewController () {
-    //declaring private data members
-    ContactStore* _contactStore;
-}
+@interface MasterViewController ()
 @end
 
 @implementation MasterViewController
@@ -33,7 +30,7 @@
 {
     [super viewDidLoad];
     
-    _contactStore = [[ContactStore alloc] initWithDummies];
+    [ContactStore init];
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(prepForNewContact:)];
@@ -44,7 +41,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [_contactStore reLoadContacts];
     [self.tableView reloadData];
 
 }
@@ -69,14 +65,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return  _contactStore.count;
+    return  [ContactStore count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    Contact *object = [_contactStore getContactAtIndex:indexPath.row];
+    Contact *object = [ContactStore getContactAtIndex:indexPath.row];
     cell.textLabel.text = object.name;
     cell.detailTextLabel.text = object.title;
     
@@ -92,8 +88,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Contact *contactToDelete = [_contactStore getContactAtIndex:indexPath.row];
-        [_contactStore deleteContact:contactToDelete];
+        Contact *contactToDelete = [ContactStore getContactAtIndex:indexPath.row];
+        [ContactStore deleteContact:contactToDelete];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
@@ -117,7 +113,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        Contact *object = [_contactStore getContactAtIndex:indexPath.row];
+        Contact *object = [ContactStore getContactAtIndex:indexPath.row];
         self.detailViewController.detailItem = object;
     }
 }
@@ -126,7 +122,7 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Contact *object = [_contactStore getContactAtIndex:indexPath.row];
+        Contact *object = [ContactStore getContactAtIndex:indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
 }

@@ -10,10 +10,7 @@
 
 #import "ContactStore.h"
 
-@interface EditViewController (){
-    
-    ContactStore* _contactStore;
-}
+@interface EditViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
 @end
@@ -32,8 +29,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    _contactStore = [[ContactStore alloc] initWithDummies];
     
     [self configureView];
 }
@@ -82,13 +77,13 @@
     self.detailItem.address = self.textAddress.text;
     self.detailItem.socialNetworkHandle = self.textHandle.text;
        
-    [_contactStore updateContact:self.detailItem];
+    [ContactStore updateContact:self.detailItem];
     
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction) actionDelete:(id)sender {
     
-    [_contactStore deleteContact:self.detailItem];
+    [ContactStore deleteContact:self.detailItem];
     
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
