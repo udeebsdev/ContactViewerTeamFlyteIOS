@@ -3,31 +3,7 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "+[ContactStore getContactsFromResponseDictionary:]:ContactStore.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[dictContact objectForKey:@&quot;name&quot;]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[MasterViewController tableView:numberOfRowsInSection:]:MasterViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "_contactStore.count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "+[ContactStore count]:ContactStore.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[self readContacts].count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[EditViewController actionSave:]:EditViewController.m">
+         contextName = "-[DetailViewController viewWillAppear:]:DetailViewController.m">
       </ContextState>
       <ContextState
          contextName = "-[MasterViewController tableView:cellForRowAtIndexPath:]:MasterViewController.m">
@@ -38,10 +14,57 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "+[ContactStore readContacts]:ContactStore.m">
+         contextName = "-[EditViewController configureView]:EditViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[ContactStore count]:ContactStore.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[self readContacts].count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailViewController configureView]:DetailViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[MasterViewController tableView:numberOfRowsInSection:]:MasterViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_contactStore.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[EditViewController actionSave:]:EditViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[ContactStore getContactsFromResponseDictionary:]:ContactStore.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[dictContact objectForKey:@&quot;name&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DetailViewController onContactFetched:]:DetailViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[ContactStore findContactById:]:ContactStore.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[self readContacts]">
+            </PersistentString>
+            <PersistentString
+               value = "tempContact._id == contactID">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[ContactStore initWithDummies]:ContactStore.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[ContactStore readContacts]:ContactStore.m">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

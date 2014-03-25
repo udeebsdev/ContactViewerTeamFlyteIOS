@@ -30,12 +30,22 @@
 {
     [super viewDidLoad];
     
-    [ContactStore init];
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    [self performSelectorInBackground:@selector(initializeContactStore) withObject:nil ];
+    
+    }
 
+-(void)initializeContactStore{
+    [ContactStore init];
+    [self performSelectorOnMainThread:@selector(loadViewDetails) withObject:nil  waitUntilDone:NO];
+}
+
+-(void)loadViewDetails{
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(prepForNewContact:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated

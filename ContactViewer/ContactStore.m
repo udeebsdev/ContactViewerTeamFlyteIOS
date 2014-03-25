@@ -120,71 +120,109 @@
 
 +(id)updateContact:(Contact*)contactToUpdate{
     
-    NSMutableArray *mutableContactsForReading  = [self readContacts];
+//    NSMutableArray *mutableContactsForReading  = [self readContacts];
+//    
+//    for(Contact* tempContact in  mutableContactsForReading)
+//    {
+//        if(tempContact._id == contactToUpdate._id){
+//            tempContact.name =  contactToUpdate.name;
+//            tempContact.phone = contactToUpdate.phone;
+//            tempContact.title = contactToUpdate.title;
+//            tempContact.email = contactToUpdate.email;
+//            tempContact.address = contactToUpdate.address;
+//            tempContact.socialNetworkHandle = contactToUpdate.socialNetworkHandle;
+//            tempContact.alias = contactToUpdate.alias;
+//            
+//            NSMutableArray *mutableContacts = [self serializeContacts:mutableContactsForReading];
+//            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+//            [prefs setObject:mutableContacts forKey:@"flyteContacts"];
+//            
+//            
+//            break;
+//        }
+//    }
     
-    for(Contact* tempContact in  mutableContactsForReading)
-    {
-        if(tempContact._id == contactToUpdate._id){
-            tempContact.name =  contactToUpdate.name;
-            tempContact.phone = contactToUpdate.phone;
-            tempContact.title = contactToUpdate.title;
-            tempContact.email = contactToUpdate.email;
-            tempContact.address = contactToUpdate.address;
-            tempContact.socialNetworkHandle = contactToUpdate.socialNetworkHandle;
-            tempContact.alias = contactToUpdate.alias;
-            
-            NSMutableArray *mutableContacts = [self serializeContacts:mutableContactsForReading];
-            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-            [prefs setObject:mutableContacts forKey:@"flyteContacts"];
-            
-            
-            break;
-        }
-    }
+    NSURL* url = [NSURL URLWithString: [NSString stringWithFormat:@"http://contacts.tinyapollo.com/contacts/%@?key=flyte&name=%@&title=%@&email=%@&phone=%@phone&twitterId=%@",contactToUpdate._id, contactToUpdate.name, contactToUpdate.title, contactToUpdate.email, contactToUpdate.phone, contactToUpdate.socialNetworkHandle]];
+    // create the request!
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    [request setURL:url];
+    [request setHTTPMethod:@"PUT"];
     
+    // get the response!
+    NSHTTPURLResponse *reponse = nil;
+    NSError* error = [[NSError alloc] init];
+    NSData* responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&reponse error:&error];
+    // deserialize the response
+    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
     return self;
 }
 
 +(id)addContact:(Contact*)newContact{
     
-    NSMutableArray *mutableContactsForReading  = [self readContacts];
-    [mutableContactsForReading addObject:newContact];
+    //    NSMutableArray *mutableContactsForReading  = [self readContacts];
+    //    [mutableContactsForReading addObject:newContact];
+    //
+    //    NSMutableArray *mutableContacts = [self serializeContacts:mutableContactsForReading];
     
-    NSMutableArray *mutableContacts = [self serializeContacts:mutableContactsForReading];
+    //    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    //    [prefs setObject:mutableContacts forKey:@"flyteContacts"];
     
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setObject:mutableContacts forKey:@"flyteContacts"];
+    NSURL* url = [NSURL URLWithString: [NSString stringWithFormat:@"http://contacts.tinyapollo.com/contacts?key=flyte&name=%@&title=%@&email=%@&phone=%@phone&twitterId=%@", newContact.name, newContact.title, newContact.email, newContact.phone, newContact.socialNetworkHandle]];
+    // create the request!
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
     
+    // get the response!
+    NSHTTPURLResponse *reponse = nil;
+    NSError* error = [[NSError alloc] init];
+    NSData* responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&reponse error:&error];
+    // deserialize the response
+    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
     return self;
 }
 
 +(id)deleteContact:(Contact*)contactToRemove{
     
-    NSMutableArray *mutableContactsForReading  = [self readContacts];
-    int contactToRemoveIndex = -1;
-    for(int i=0; i< mutableContactsForReading.count; i++)
-    {
-        Contact* tempContact = [mutableContactsForReading objectAtIndex:i];
-        if(tempContact._id == contactToRemove._id){
-            contactToRemoveIndex = i;
-            break;
-        }
-    }
+//    NSMutableArray *mutableContactsForReading  = [self readContacts];
+//    int contactToRemoveIndex = -1;
+//    for(int i=0; i< mutableContactsForReading.count; i++)
+//    {
+//        Contact* tempContact = [mutableContactsForReading objectAtIndex:i];
+//        if(tempContact._id == contactToRemove._id){
+//            contactToRemoveIndex = i;
+//            break;
+//        }
+//    }
+//    
+//    if(contactToRemoveIndex >= 0){
+//        [mutableContactsForReading removeObjectAtIndex:contactToRemoveIndex];
+//        
+//        NSMutableArray *mutableContacts = [self serializeContacts:mutableContactsForReading];
+//        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+//        [prefs setObject:mutableContacts forKey:@"flyteContacts"];
+//    }
+//    return self;
     
-    if(contactToRemoveIndex >= 0){
-        [mutableContactsForReading removeObjectAtIndex:contactToRemoveIndex];
-        
-        NSMutableArray *mutableContacts = [self serializeContacts:mutableContactsForReading];
-        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-        [prefs setObject:mutableContacts forKey:@"flyteContacts"];
-    }
+    NSURL* url = [NSURL URLWithString: [NSString stringWithFormat:@"http://contacts.tinyapollo.com/contacts/%@?key=flyte",contactToRemove._id]];
+    // create the request!
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    [request setURL:url];
+    [request setHTTPMethod:@"DELETE"];
+    
+    // get the response!
+    NSHTTPURLResponse *reponse = nil;
+    NSError* error = [[NSError alloc] init];
+    NSData* responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&reponse error:&error];
+    // deserialize the response
+    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
     return self;
 }
 
 +(Contact*) findContactById:(NSString*)contactID{
     for(Contact* tempContact in [self readContacts])
     {
-        if(tempContact._id == contactID){
+        if([tempContact._id isEqualToString:contactID]){
             return tempContact;
         }
     }
