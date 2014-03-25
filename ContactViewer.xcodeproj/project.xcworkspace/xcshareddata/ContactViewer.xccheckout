@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>70414DC5-A832-42D4-901B-63D56C7AAE99</string>
+	<string>78AC0697-300D-4655-8778-6DACD85A892B</string>
 	<key>IDESourceControlProjectName</key>
 	<string>ContactViewer</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>BB999471-680A-4676-97BB-F5EEE931DAE8</key>
-		<string>https://github.com/sprabina/ContactViewerTeamFlyteIOS.git</string>
+		<key>78415CB0-5A1F-47FB-8FF8-7EF1B7DD15F2</key>
+		<string>https://github.com/udeebsdev/ContactViewerTeamFlyteIOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ContactViewer.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>BB999471-680A-4676-97BB-F5EEE931DAE8</key>
+		<key>78415CB0-5A1F-47FB-8FF8-7EF1B7DD15F2</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/sprabina/ContactViewerTeamFlyteIOS.git</string>
+	<string>https://github.com/udeebsdev/ContactViewerTeamFlyteIOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>BB999471-680A-4676-97BB-F5EEE931DAE8</string>
+	<string>78415CB0-5A1F-47FB-8FF8-7EF1B7DD15F2</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>BB999471-680A-4676-97BB-F5EEE931DAE8</string>
+			<string>78415CB0-5A1F-47FB-8FF8-7EF1B7DD15F2</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ContactViewer</string>
+			<string>ContactViewerTeamFlyteIOS</string>
 		</dict>
 	</array>
 </dict>

@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "+[ContactStore getContactsFromResponseDictionary:]:ContactStore.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[dictContact objectForKey:@&quot;name&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[MasterViewController tableView:numberOfRowsInSection:]:MasterViewController.m">
          <PersistentStrings>
             <PersistentString
@@ -11,7 +19,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[ContactStore initWithDummies]:ContactStore.m">
+         contextName = "+[ContactStore count]:ContactStore.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[self readContacts].count">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[EditViewController actionSave:]:EditViewController.m">
@@ -23,6 +36,12 @@
                value = "object.name">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[ContactStore readContacts]:ContactStore.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ContactStore initWithDummies]:ContactStore.m">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

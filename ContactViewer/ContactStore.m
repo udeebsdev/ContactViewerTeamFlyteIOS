@@ -16,15 +16,100 @@
 @implementation ContactStore
 
 +(NSMutableArray*)readContacts{
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    //    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    //
+    //    // Read from the NSUserDefaults
+    //    NSArray* rawContacts  = [[NSArray alloc] initWithArray:[prefs arrayForKey:@"flyteContacts"]];
+    //    NSMutableArray *mutableContactsForReading  = [self deSerializeContacts:rawContacts];
+    //    return mutableContactsForReading;
     
-    // Read from the NSUserDefaults
-    NSArray* rawContacts  = [[NSArray alloc] initWithArray:[prefs arrayForKey:@"flyteContacts"]];
-    NSMutableArray *mutableContactsForReading  = [self deSerializeContacts:rawContacts];
+    NSURL* url = [NSURL URLWithString: [NSString stringWithFormat:@"http://contacts.tinyapollo.com/contacts?key=flyte"]];
+    // create the request!
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    [request setURL:url];
+    [request setHTTPMethod:@"GET"];
+    
+    // get the response!
+    NSHTTPURLResponse *reponse = nil;
+    NSError* error = [[NSError alloc] init];
+    NSData* responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&reponse error:&error];
+    
+    // deserialize the response
+    NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
+    
+    NSMutableArray* mutableArrayContact = [self deSerializeContacts:[responseDict objectForKey:@"contacts"]];
+    
+    return mutableArrayContact;
+}
+
+//Deserialize Contacts
++(NSMutableArray*)deSerializeContacts:(NSArray*)rawContacts{
+    NSMutableArray *mutableContactsForReading = [[NSMutableArray alloc] init];
+    
+    for(NSDictionary* dictContact in rawContacts) {
+        Contact *contact1 = [self deSerializeIndividualContacts:dictContact];
+        [mutableContactsForReading addObject:contact1];
+    }
     return mutableContactsForReading;
 }
 
++(Contact*)deSerializeIndividualContacts:(NSDictionary*)dictContact{
+    
+    Contact *contact1 = [[Contact alloc] initWithName:[dictContact objectForKey:@"name"] andTitle:[dictContact objectForKey:@"title"]];
+    contact1._id =[dictContact objectForKey:@"_id"];
+    contact1.alias=[dictContact objectForKey:@"alias"];
+    contact1.phone = [dictContact objectForKey:@"phone"];
+    contact1.email=[dictContact objectForKey:@"email"];
+    contact1.address=[dictContact objectForKey:@"address"];
+    contact1.socialNetworkHandle=[dictContact objectForKey:@"twitterId"];
+    return contact1;
+}
 
+// Serialize Contacts
++(NSMutableArray*) serializeContacts:(NSArray*) contactsToSerialize{
+    NSMutableArray *mutableContacts = [[NSMutableArray alloc] init];
+    
+    for(Contact* contactItem in contactsToSerialize) {
+        NSMutableDictionary *dict = [self serializeIndividualContact: contactItem];
+        [mutableContacts addObject:dict];
+    }
+    
+    return mutableContacts;
+    
+}
+
++(NSMutableDictionary*) serializeIndividualContact:(Contact*) contactItem{
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:contactItem._id forKey:@"ID"];
+    [dict setValue:contactItem.name forKey:@"Name"];
+    [dict setValue:contactItem.title forKey:@"Title"];
+    [dict setValue:contactItem.alias forKey:@"Alias"];
+    [dict setValue:contactItem.phone forKey:@"Phone"];
+    [dict setValue:contactItem.email forKey:@"Email"];
+    [dict setValue:contactItem.address forKey:@"Address"];
+    [dict setValue:contactItem.socialNetworkHandle forKey:@"Handle"];
+    
+    return dict;
+    
+}
+
+
+// Initialize the whole darn thing!!
++(id)init{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    // Read from the NSUserDefaults
+    NSArray* rawContacts  = [prefs arrayForKey:@"flyteContacts"];
+    
+    // If there is not contact then create new
+    if(rawContacts == nil){
+        [self createDummyContacts];
+    }
+    
+    return self;
+}
+
+// Methods for use
 +(int) count{
     return [self readContacts].count;
 }
@@ -34,9 +119,9 @@
 }
 
 +(id)updateContact:(Contact*)contactToUpdate{
-   
+    
     NSMutableArray *mutableContactsForReading  = [self readContacts];
-  
+    
     for(Contact* tempContact in  mutableContactsForReading)
     {
         if(tempContact._id == contactToUpdate._id){
@@ -51,7 +136,7 @@
             NSMutableArray *mutableContacts = [self serializeContacts:mutableContactsForReading];
             NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
             [prefs setObject:mutableContacts forKey:@"flyteContacts"];
-
+            
             
             break;
         }
@@ -61,7 +146,7 @@
 }
 
 +(id)addContact:(Contact*)newContact{
-   
+    
     NSMutableArray *mutableContactsForReading  = [self readContacts];
     [mutableContactsForReading addObject:newContact];
     
@@ -74,7 +159,7 @@
 }
 
 +(id)deleteContact:(Contact*)contactToRemove{
-   
+    
     NSMutableArray *mutableContactsForReading  = [self readContacts];
     int contactToRemoveIndex = -1;
     for(int i=0; i< mutableContactsForReading.count; i++)
@@ -88,7 +173,7 @@
     
     if(contactToRemoveIndex >= 0){
         [mutableContactsForReading removeObjectAtIndex:contactToRemoveIndex];
-    
+        
         NSMutableArray *mutableContacts = [self serializeContacts:mutableContactsForReading];
         NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
         [prefs setObject:mutableContacts forKey:@"flyteContacts"];
@@ -106,72 +191,7 @@
     return nil;
 }
 
-+(Contact*)deSerializeIndividualContacts:(NSDictionary*)dictContact{
-   
-        Contact *contact1 = [[Contact alloc] initWithName:[dictContact objectForKey:@"Name"] andTitle:[dictContact objectForKey:@"Title"]];
-        contact1._id =[dictContact objectForKey:@"ID"];
-        contact1.alias=[dictContact objectForKey:@"Alias"];
-        contact1.phone = [dictContact objectForKey:@"Phone"];
-        contact1.email=[dictContact objectForKey:@"Email"];
-        contact1.address=[dictContact objectForKey:@"Address"];
-        contact1.socialNetworkHandle=[dictContact objectForKey:@"Handle"];
-    return contact1;
-}
-
-
-+(NSMutableArray*)deSerializeContacts:(NSArray*)rawContacts{
-    NSMutableArray *mutableContactsForReading = [[NSMutableArray alloc] init];
-    
-    for(NSDictionary* dictContact in rawContacts) {
-        Contact *contact1 = [self deSerializeIndividualContacts:dictContact];
-        [mutableContactsForReading addObject:contact1];
-    }
-    return mutableContactsForReading;
-}
-
-+(id)init{
-     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    
-    // Read from the NSUserDefaults
-     NSArray* rawContacts  = [prefs arrayForKey:@"flyteContacts"];
-    
-    // If there is not contact then create new
-    if(rawContacts == nil){
-        [self createDummyContacts];
-    }
-
-    return self;
-}
-
-
-+(NSMutableDictionary*) serializeIndividualContact:(Contact*) contactItem{
-        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    [dict setValue:contactItem._id forKey:@"ID"];
-    [dict setValue:contactItem.name forKey:@"Name"];
-        [dict setValue:contactItem.title forKey:@"Title"];
-        [dict setValue:contactItem.alias forKey:@"Alias"];
-        [dict setValue:contactItem.phone forKey:@"Phone"];
-        [dict setValue:contactItem.email forKey:@"Email"];
-        [dict setValue:contactItem.address forKey:@"Address"];
-        [dict setValue:contactItem.socialNetworkHandle forKey:@"Handle"];
-    
-    return dict;
-    
-}
-
-+(NSMutableArray*) serializeContacts:(NSArray*) contactsToSerialize{
-    NSMutableArray *mutableContacts = [[NSMutableArray alloc] init];
-    
-    for(Contact* contactItem in contactsToSerialize) {
-        NSMutableDictionary *dict = [self serializeIndividualContact: contactItem];
-        [mutableContacts addObject:dict];
-    }
-    
-    return mutableContacts;
-    
-}
-
-
+// Create Dummy Contacts
 +(id) createDummyContacts{
     // Create some sample contacts
     Contact *contact1 = [[Contact alloc] initWithName:@"Gregory Jensen" andTitle:@"Best Buy"];
