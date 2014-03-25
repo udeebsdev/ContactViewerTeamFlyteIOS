@@ -55,7 +55,6 @@
 - (void)configureView
 {
     // Update the user interface for the edit item.
-    
     if (self.detailItem) {
         self.textName.text = self.detailItem.name;
         self.textAlias.text = self.detailItem.alias;
@@ -68,6 +67,25 @@
 }
 
 
+-(void)onContactFetched:(Contact*)updatedContact{
+    self.detailItem = updatedContact;
+    [self configureView];
+}
+
+-(void)onContactDeleted{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+-(void)updateContact{
+    [ContactStore updateContact:self.detailItem];
+    [self performSelectorOnMainThread:@selector(onContactFetched:) withObject:[ContactStore findContactById:self.detailItem._id] waitUntilDone:YES];
+}
+
+-(void)deleteContact{
+    [ContactStore deleteContact:self.detailItem];
+    [self performSelectorOnMainThread:@selector(onContactDeleted) withObject:nil waitUntilDone:YES];
+}
+
 - (IBAction) actionSave:(id)sender {
     self.detailItem.name = self.textName.text;
     self.detailItem.alias = self.textAlias.text;
@@ -76,16 +94,14 @@
     self.detailItem.email = self.textEmail.text;
     self.detailItem.address = self.textAddress.text;
     self.detailItem.socialNetworkHandle = self.textHandle.text;
-       
-    [ContactStore updateContact:self.detailItem];
+    
+    [self performSelectorInBackground:@selector(updateContact) withObject:self.detailItem._id ];
     
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 - (IBAction) actionDelete:(id)sender {
-    
-    [ContactStore deleteContact:self.detailItem];
-    
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self performSelectorInBackground:@selector(deleteContact) withObject:self.detailItem._id ];
 }
 
 @end

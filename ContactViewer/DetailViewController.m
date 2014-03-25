@@ -22,9 +22,9 @@
 {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
+        //
+        //        // Update the view.
+        //        [self configureView];
     }
     
     if (self.masterPopoverController != nil) {
@@ -50,24 +50,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self configureView];
+    //    [self configureView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     [self performSelectorInBackground:@selector(findContactById:) withObject:self.detailItem._id ];
-    
 }
 
 -(void)onContactFetched:(Contact*)updatedContact{
-    self.detailItem =updatedContact;
+    self.detailItem = updatedContact;
     [self configureView];
 }
 
 -(void)findContactById:(NSString*)contactID{
-    
     [self performSelectorOnMainThread:@selector(onContactFetched:) withObject:[ContactStore findContactById:self.detailItem._id] waitUntilDone:YES];
 }
 
