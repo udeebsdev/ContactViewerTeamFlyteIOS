@@ -71,7 +71,7 @@
 }
 
 +(id)updateContact:(Contact*)contactToUpdate{
-    NSString* urlString =[NSString stringWithFormat:@"http://contacts.tinyapollo.com/contacts/%@?key=flyte&name=%@&title=%@&email=%@&phone=%@phone&twitterId=%@",contactToUpdate._id, [self getEscapedString:contactToUpdate.name], [self getEscapedString:contactToUpdate.title], [self getEscapedString:contactToUpdate.email], [self getEscapedString:contactToUpdate.phone], [self getEscapedString:contactToUpdate.socialNetworkHandle]];
+    NSString* urlString =[NSString stringWithFormat:@"http://contacts.tinyapollo.com/contacts/%@?key=flyte&name=%@&title=%@&email=%@&phone=%@&twitterId=%@",contactToUpdate._id, [self getEscapedString:contactToUpdate.name], [self getEscapedString:contactToUpdate.title], [self getEscapedString:contactToUpdate.email], [self getEscapedString:contactToUpdate.phone], [self getEscapedString:contactToUpdate.socialNetworkHandle]];
     
     NSURL* url = [NSURL URLWithString: urlString];
     
@@ -90,7 +90,7 @@
 }
 
 +(id)addContact:(Contact*)newContact{
-    NSString* urlString = [NSString stringWithFormat:@"http://contacts.tinyapollo.com/contacts?key=flyte&name=%@&title=%@&email=%@&phone=%@phone&twitterId=%@", [self getEscapedString:newContact.name], [self getEscapedString:newContact.title], [self getEscapedString:newContact.email], [self getEscapedString:newContact.phone], [self getEscapedString:newContact.socialNetworkHandle]];
+    NSString* urlString = [NSString stringWithFormat:@"http://contacts.tinyapollo.com/contacts?key=flyte&name=%@&title=%@&email=%@&phone=%@&twitterId=%@", [self getEscapedString:newContact.name], [self getEscapedString:newContact.title], [self getEscapedString:newContact.email], [self getEscapedString:newContact.phone], [self getEscapedString:newContact.socialNetworkHandle]];
     
     NSURL* url = [NSURL URLWithString: urlString];
     
