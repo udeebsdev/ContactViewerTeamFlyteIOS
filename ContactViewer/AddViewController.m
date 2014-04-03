@@ -47,10 +47,8 @@
     //TODO: persist changes
     
    Contact *newContact = [[Contact alloc] initWithName:self.textName.text andTitle:self.textTitle.text];
-   newContact.alias = self.textAlias.text;
    newContact.phone = self.textPhone.text;
    newContact.email = self.textEmail.text;
-   newContact.address = self.textAddress.text;
    newContact.socialNetworkHandle = self.textHandle.text;
     
     [ContactStore addContact:newContact];

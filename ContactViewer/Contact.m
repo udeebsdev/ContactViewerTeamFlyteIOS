@@ -10,7 +10,7 @@
 
 @implementation Contact
 
-@synthesize _id, name, title, phone, email, address, alias, socialNetworkHandle;
+@synthesize _id, name, title, phone, email, socialNetworkHandle;
 
 -(id) initWithName:(NSString*)newName andTitle:(NSString*)newTitle{
     self = [super init];

@@ -15,8 +15,6 @@
 @property NSString* title;
 @property NSString* phone;
 @property NSString* email;
-@property NSString* address;
-@property NSString* alias;
 @property NSString* socialNetworkHandle;
 
 -(id) initWithName:(NSString*)newName andTitle:(NSString*)newTitle;

@@ -57,11 +57,9 @@
     // Update the user interface for the edit item.
     if (self.detailItem) {
         self.textName.text = self.detailItem.name;
-        self.textAlias.text = self.detailItem.alias;
         self.textTitle.text = self.detailItem.title;
         self.textPhone.text = self.detailItem.phone;
         self.textEmail.text = self.detailItem.email;
-        self.textAddress.text = self.detailItem.address;
         self.textHandle.text = self.detailItem.socialNetworkHandle;
     }
 }
@@ -88,11 +86,9 @@
 
 - (IBAction) actionSave:(id)sender {
     self.detailItem.name = self.textName.text;
-    self.detailItem.alias = self.textAlias.text;
     self.detailItem.title = self.textTitle.text;
     self.detailItem.phone = self.textPhone.text;
     self.detailItem.email = self.textEmail.text;
-    self.detailItem.address = self.textAddress.text;
     self.detailItem.socialNetworkHandle = self.textHandle.text;
     
     [self performSelectorInBackground:@selector(updateContact) withObject:self.detailItem._id ];

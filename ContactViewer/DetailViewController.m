@@ -38,11 +38,9 @@
     
     if (self.detailItem) {
         self.labelName.text = self.detailItem.name;
-        self.labelAlias.text = self.detailItem.alias;
         self.labelTitle.text = self.detailItem.title;
         self.labelPhone.text = self.detailItem.phone;
         self.labelEmail.text = self.detailItem.email;
-        self.labelAddress.text = self.detailItem.address;
         self.labelHandle.text = self.detailItem.socialNetworkHandle;
     }
 }

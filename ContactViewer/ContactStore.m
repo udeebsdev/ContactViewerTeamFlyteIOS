@@ -50,10 +50,8 @@
     
     Contact *contact1 = [[Contact alloc] initWithName:[dictContact objectForKey:@"name"] andTitle:[dictContact objectForKey:@"title"]];
     contact1._id =[dictContact objectForKey:@"_id"];
-    contact1.alias=[dictContact objectForKey:@"alias"];
     contact1.phone = [dictContact objectForKey:@"phone"];
     contact1.email=[dictContact objectForKey:@"email"];
-    contact1.address=[dictContact objectForKey:@"address"];
     contact1.socialNetworkHandle=[dictContact objectForKey:@"twitterId"];
     return contact1;
 }
