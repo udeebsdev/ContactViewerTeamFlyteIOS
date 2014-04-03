@@ -31,6 +31,12 @@
     [super viewDidLoad];
     
     [self configureView];
+    self.textName.delegate = self;
+    self.textTitle.delegate = self;
+    self.textPhone.delegate = self;
+    self.textEmail.delegate = self;
+    self.textHandle.delegate = self;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,6 +70,10 @@
     }
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 -(void)onContactFetched:(Contact*)updatedContact{
     self.detailItem = updatedContact;

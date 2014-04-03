@@ -10,7 +10,7 @@
 
 #import "Contact.h"
 
-@interface EditViewController : UIViewController
+@interface EditViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong, nonatomic) Contact* detailItem;
 
