@@ -10,7 +10,7 @@
 
 #import "Contact.h"
 
-@interface AddViewController : UIViewController
+@interface AddViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *textName;
 

@@ -33,6 +33,17 @@
     if (self.masterPopoverController != nil) {
         [self.masterPopoverController dismissPopoverAnimated:YES];
     }
+    
+    self.textName.delegate = self;
+    self.textTitle.delegate = self;
+    self.textPhone.delegate = self;
+    self.textEmail.delegate = self;
+    self.textHandle.delegate = self;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning
